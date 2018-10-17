@@ -8,6 +8,9 @@
 #include "data.h"
 #include "tree.h"
 
+#if defined(__cplusplus)
+extern "C" {
+#endif
 
 #ifdef GPU
 void pull_network_output(network *net);
@@ -24,6 +27,10 @@ int get_predicted_class_network(network *net);
 void print_network(network *net);
 int resize_network(network *net, int w, int h);
 void calc_network_cost(network *net);
+
+#if defined(__cplusplus)
+}
+#endif
 
 #endif
 

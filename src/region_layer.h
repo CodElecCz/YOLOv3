@@ -5,7 +5,12 @@
 #include "layer.h"
 #include "network.h"
 
+#if defined(__cplusplus)
+extern "C" {
+#endif
+
 layer make_region_layer(int batch, int w, int h, int n, int classes, int coords);
+
 void forward_region_layer(const layer l, network net);
 void backward_region_layer(const layer l, network net);
 void resize_region_layer(layer *l, int w, int h);
@@ -13,6 +18,10 @@ void resize_region_layer(layer *l, int w, int h);
 #ifdef GPU
 void forward_region_layer_gpu(const layer l, network net);
 void backward_region_layer_gpu(layer l, network net);
+#endif
+
+#if defined(__cplusplus)
+}
 #endif
 
 #endif

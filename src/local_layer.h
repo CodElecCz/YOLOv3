@@ -7,6 +7,10 @@
 #include "layer.h"
 #include "network.h"
 
+#if defined(__cplusplus)
+extern "C" {
+#endif
+
 typedef layer local_layer;
 
 #ifdef GPU
@@ -25,7 +29,12 @@ void backward_local_layer(local_layer layer, network net);
 void update_local_layer(local_layer layer, update_args a);
 
 void bias_output(float *output, float *biases, int batch, int n, int size);
+
 void backward_bias(float *bias_updates, float *delta, int batch, int n, int size);
+
+#if defined(__cplusplus)
+}
+#endif
 
 #endif
 

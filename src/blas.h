@@ -2,6 +2,10 @@
 #define BLAS_H
 #include "darknet.h"
 
+#if defined(__cplusplus)
+extern "C" {
+#endif
+
 void flatten(float *x, int size, int layers, int batch, int forward);
 void pm(int M, int N, float *A);
 float *random_matrix(int rows, int cols);
@@ -44,9 +48,17 @@ void softmax(float *input, int n, float temp, int stride, float *output);
 void softmax_cpu(float *input, int n, int batch, int batch_offset, int groups, int group_offset, int stride, float temp, float *output);
 void upsample_cpu(float *in, int w, int h, int c, int batch, int stride, int forward, float scale, float *out);
 
+#if defined(__cplusplus)
+}
+#endif
+
 #ifdef GPU
 #include "cuda.h"
 #include "tree.h"
+
+#if defined(__cplusplus)
+extern "C" {
+#endif
 
 void axpy_gpu(int N, float ALPHA, float * X, int INCX, float * Y, int INCY);
 void axpy_gpu_offset(int N, float ALPHA, float * X, int OFFX, int INCX, float * Y, int OFFY, int INCY);
@@ -101,5 +113,10 @@ void flatten_gpu(float *x, int spatial, int layers, int batch, int forward, floa
 void softmax_tree(float *input, int spatial, int batch, int stride, float temp, float *output, tree hier);
 void upsample_gpu(float *in, int w, int h, int c, int batch, int stride, int forward, float scale, float *out);
 
+#if defined(__cplusplus)
+}
 #endif
+
+#endif
+
 #endif

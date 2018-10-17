@@ -3,8 +3,11 @@
 
 #include "darknet.h"
 
-#ifdef GPU
+#if defined(__cplusplus)
+extern "C" {
+#endif
 
+#ifdef GPU
 void check_error(cudaError_t status);
 cublasHandle_t blas_handle();
 int *cuda_make_int_array(int *x, size_t n);
@@ -17,4 +20,9 @@ cudnnHandle_t cudnn_handle();
 #endif
 
 #endif
+
+#if defined(__cplusplus)
+}
+#endif
+
 #endif
