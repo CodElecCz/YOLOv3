@@ -5,4 +5,4 @@ YOLOv3 updated for:
 * CUDA Toolkit v10
 
 Description in czech language:
-  https://www.codelec.cz/m%C3%A9-p%C5%99%C3%ADsp%C4%9Bvky/detekce-objektu-i
+  [www.codelec.cz](https://www.codelec.cz/m%C3%A9-p%C5%99%C3%ADsp%C4%9Bvky/detekce-objektu-i)
